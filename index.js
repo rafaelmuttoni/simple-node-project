@@ -17,13 +17,16 @@ const templateReplacer = (temp, product) => {
   return output
 }
 
+// READ TEMPLATES FILES
 const tempOverview = fs.readFileSync(`${__dirname}/templates/template-overview.html`, 'utf-8');
 const tempCard = fs.readFileSync(`${__dirname}/templates/template-card.html`, 'utf-8');
 const tempProduct = fs.readFileSync(`${__dirname}/templates/template-product.html`, 'utf-8');
 
+// JSON FILE
 const data = fs.readFileSync(`${__dirname}/data/data.json`);
 const dataObject = JSON.parse(data);
 
+// CREATING SERVER
 const server = http.createServer((req, res) => {
   // Getting pathname and params from the url
   const { query, pathname } = url.parse(req.url, true);
@@ -55,6 +58,7 @@ const server = http.createServer((req, res) => {
   }
 });
 
+// GET SERVER UP ON PORT 8000
 server.listen(8000, () => {
   console.log('Listening to requests on port 8000');
 });
