@@ -37,6 +37,19 @@ const server = http.createServer((req, res) => {
 
     res.end(overview);
 
+  // Product page
+  } else if (pathname === '/product'){
+    res.writeHead(200, { 'Content-type': 'text/html' });
+    const product = dataObject[query.id];
+    const output = templateReplacer(tempProduct, product);
+    res.end(output);
+
+  // API page
+  } else if (pathname === '/api'){
+    res.writeHead(200, { 'Content-type': 'application/json' });
+    res.end(data);
+
+  // 404
   } else {
     res.end('404');
   }
