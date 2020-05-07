@@ -17,15 +17,26 @@ const templateReplacer = (temp, product) => {
   return output
 }
 
+const tempOverview = fs.readFileSync(`${__dirname}/templates/template-overview.html`, 'utf-8');
+const tempCard = fs.readFileSync(`${__dirname}/templates/template-card.html`, 'utf-8');
+const tempProduct = fs.readFileSync(`${__dirname}/templates/template-product.html`, 'utf-8');
+
+const data = fs.readFileSync(`${__dirname}/data/data.json`);
+const dataObject = JSON.parse(data);
+
 const server = http.createServer((req, res) => {
   // Getting pathname and params from the url
   const { query, pathname } = url.parse(req.url, true);
 
   // Home page
-  if (pathname === '/') {
-    res.end('Home page');
+  if (pathname === '/' || pathname === '/overview') {
+    res.writeHead(200, { 'Content-type': 'text/html' });
 
-  // 404 
+    const cardsHtml = dataObject.map(el => templateReplacer(tempCard, el)).join('');
+    const overview = tempOverview.replace(/{%PRODUCT_CARDS%}/g, cardsHtml);
+
+    res.end(overview);
+
   } else {
     res.end('404');
   }
