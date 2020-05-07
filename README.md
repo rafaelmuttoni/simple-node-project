@@ -25,7 +25,7 @@
 This project is currently using the following technologies:
 
 - Node
-- Node's dependencies (http, url and fs)
+- Node modules: http, url and fs
 
 ## :information_source: How To Use
 
