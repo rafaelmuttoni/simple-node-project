@@ -18,7 +18,7 @@
   SIMPLE NODE PROJECT :eight_spoked_asterisk:
 </h1>
 
-<p>A Node server with html templates that are dynamically rendered with JSON data.</p>
+<p>A pure Node server with html templates that are dynamically rendered with JSON data.</p>
 
 ## :rocket: Technologies
 
