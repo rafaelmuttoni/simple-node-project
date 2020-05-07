@@ -15,7 +15,7 @@
 </p>
 
 <h1>
-  NODE SIMPLE PROJECT :eight_spoked_asterisk:
+  SIMPLE NODE PROJECT :eight_spoked_asterisk:
 </h1>
 
 <p>A Node server with html templates that are dynamically rendered with JSON data.</p>
